@@ -1,0 +1,1 @@
+print(sum([i for i in sum([list(range(s, e + 1)) for s, e in [(int(x), int(y)) for x, y in [r.split('-') for r in open("input.txt", "r").readline().split(',')]]], []) if any([all(str(i)[j:k + j] == str(i)[:k] for j in range(k, len(str(i)), k)) for k in range(1, len(str(i)) // 2 + 1) if str(i)[:k] == str(i)[k:2 * k]])]))

@@ -1,0 +1,1 @@
+print(sum([i for i in sum([list(range(s, e + 1)) for s, e in [(int(x), int(y)) for x, y in [r.split('-') for r in open("input.txt", "r").readline().split(',')]]], []) if __import__("re").match(r"^(.*)\1+$", str(i))]))

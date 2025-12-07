@@ -1,0 +1,1 @@
+print(sum([".abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".index(next(iter(set(test[: len(test) // 2]) & set(test[len(test) // 2 :])))) for test in open("input.txt")]))

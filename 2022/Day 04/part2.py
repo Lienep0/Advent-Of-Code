@@ -1,0 +1,1 @@
+print(sum([r1 & r2 != set() for r1, r2 in [[set(range(int(s), int(e) + 1)) for part in line.strip().split(",") for s, e in [part.split("-")]] for line in open("input.txt")]]))

@@ -1,0 +1,1 @@
+print(sum(sorted([sum(map(int, elf)) for elf in map(lambda line: line.split("\n"), open("input.txt").read().split("\n\n"))], reverse=True)[:3]))
