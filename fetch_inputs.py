@@ -10,11 +10,14 @@ match len(sys.argv):
         day = local_time.tm_mday
         year = local_time.tm_year
         if local_time.tm_mon != 12:
-            print("Error: use manual mode when outside of december.")
+            print("Error: use full manual mode when outside of december.")
             exit(1)
     case 2:
         day = int(sys.argv[1])
         year = local_time.tm_year
+        if local_time.tm_mon != 12:
+            print("Error: use full manual mode when outside of december.")
+            exit(1)
     case 3:
         day = int(sys.argv[1])
         year = int(sys.argv[2])
