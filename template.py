@@ -1,3 +1,3 @@
 with open("easyinput.txt", "r") as f:
-    for line in f.readlines:
+    for line in f.readlines():
         print(line)
