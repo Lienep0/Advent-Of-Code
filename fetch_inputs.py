@@ -55,7 +55,7 @@ open(f"{dir_path}/input.txt", "w").write(input)
 if easy_input != None:
     open(f"{dir_path}/easyinput.txt", "w").write(easy_input)
 
-os.system(f"cp template.py {dir_path}/part1.py")
-os.system(f"cp template.py {dir_path}/part2.py")
+os.system(f"cp -n template.py {dir_path}/part1.py")
+os.system(f"cp -n template.py {dir_path}/part2.py")
 
 print("Done!")
