@@ -62,8 +62,6 @@ with open("input.txt", "r") as f:
     hands = [(a, int(b)) for a, b in [line.strip().split(' ') for line in f.readlines()]]
     sorted_hands = sorted(hands, key=cmp_to_key(comparaison))
 
-print([sorted_hand[0] for sorted_hand in sorted_hands])
-
 total = 0
 for i, hand in enumerate(sorted_hands):
     _, score = hand
