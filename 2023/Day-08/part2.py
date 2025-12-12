@@ -12,17 +12,18 @@ for start in starts:
     i = 0
     current = start
     while True:
-        direction = directions[i % len(directions)]
-        if (current, direction) in seen:
+        direction_index = i % len(directions)
+        if (current, direction_index) in seen:
             break
-        seen[(current, direction)] = i
+        seen[(current, direction_index)] = i
 
-        if direction == "R":
+        if directions[direction_index] == "R":
             current = dic[current][1]
         else:
             current = dic[current][0]
         i += 1
-    print(seen)
-    start_z_indexes.append([v for k, v in seen.items() if k[0][-1] == 'Z'])
+    z_nodes = [v for k, v in seen.items() if k[0][-1] == 'Z']
+    assert len(z_nodes) == 1
+    start_z_indexes.append(*z_nodes)
 
-print(start_z_indexes)
+print(lcm(*start_z_indexes))
