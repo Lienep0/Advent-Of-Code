@@ -12,7 +12,6 @@ def hash(s):
 #run the hash on the label to calculate the box
 #   if the opsign is -:
 #       - remove the lens from the box if it's present 
-#       - move remaining lenses
 #   if the opsign is =:
 #       the number after is the focal length
 #       if the lens is present in the box:
