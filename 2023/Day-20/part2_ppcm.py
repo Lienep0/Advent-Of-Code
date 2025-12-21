@@ -47,9 +47,7 @@ class Network():
         self.flipflop_modules = []
         self.total_pulses = {False: 0, True: 0}
         self.pulse_queue = deque()
-
-        # Found with visualization.py
-        self.important = ["ts", "xd", "vr", "pf"]
+        self.important = []
 
     def press_button(self):
         returnvalue = False, ""
@@ -60,7 +58,7 @@ class Network():
             sender, target_name, pulse = self.pulse_queue.popleft()
             target = self.network.get(target_name)
 
-            if sender in self.important and not pulse:
+            if sender in self.important and pulse:
                 returnvalue = True, sender
             
             self.total_pulses[pulse] += 1
@@ -76,7 +74,7 @@ class Network():
         while True:
             has_happened, important_module = self.press_button()
             if has_happened:
-                print(f"{important_module} was pressed at button press number {i}")
+                # print(f"{important_module} was pressed at button press number {i}")
                 cycle_lengths.append(i)
 
                 if len(cycle_lengths) == len(self.important):
@@ -101,10 +99,13 @@ with open("input.txt", "r") as f:
         elif module_type == FlipFlop:
             network.flipflop_modules.append(module)
 
-# Set up Conjunction modules:
+# Set up Conjunction modules, and the rx module
 for m in network.network.values():
+    if "rx" in m.neighbors:
+        important = m
     for c in network.conjunction_modules:
         if c in m.neighbors:
             network.conjunction_modules[c].add_connected(m.name)
 
+network.important = network.conjunction_modules[important.name].connected_states
 print(network.press_until_rx())
