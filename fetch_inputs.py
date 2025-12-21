@@ -26,6 +26,7 @@ if (day > 25 and 2015 <= year <= 2024
     or day > 12 and year >= 2025
     or year < 2015):
     print(f"Error: invalid day / year pair")
+    exit(1)
 
 print(f"Fectching inputs for Advent of Code {year} Day {day}...")
 
