@@ -31,7 +31,7 @@ if (day > 25 and 2015 <= year <= 2024
 print(f"Fectching inputs for Advent of Code {year} Day {day}...")
 
 base = "https://adventofcode.com/"
-cookies = {"session": open("id.txt", "r").readline().strip()}
+cookies = {"session": open("cookie.txt", "r").readline().strip()}
 
 input_request = requests.get(base + f"{year}/day/{day}/input", cookies=cookies)
 if input_request.status_code != 200:
