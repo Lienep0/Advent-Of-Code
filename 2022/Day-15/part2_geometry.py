@@ -22,7 +22,7 @@ fig, ax = plt.subplots()
 for polygon in polygons:
     shapely.plotting.plot_polygon(polygon, ax=ax) 
 plt.axis([
-    0, 4e6,
-    0, 4e6,
+    -661000, -660000,
+    2037500, 2038800
 ])
 plt.show()
